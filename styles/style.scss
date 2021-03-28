@@ -1,0 +1,260 @@
+//=============VARIABLES
+:root {
+  --ff-primary: "Kumbh Sans", sans-serif;
+  --ff-secondary: ;
+
+  --fw-reg: 400;
+  --fw-bold: 700;
+
+  --fs-h1: 2rem;
+  --fs-h3: 0.82rem;
+  --fs-body: 12px;
+
+  //===colors
+  // text
+  --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+
+  // background
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+
+  // dividers
+  --light-grayish-blue: hsl(240, 5%, 91%);
+
+  //box-shadow
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-h1: 2.25rem;
+    --fs-h3: 0.95rem;
+    --fs-body: 0.9rem;
+  }
+}
+
+//=============RESET
+* {
+  box-sizing: border-box;
+}
+
+body,
+p,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: var(--ff-primary);
+}
+
+li {
+  list-style-type: none;
+}
+//=============BASE STYLES (styles that doesn't change whatever the size of the screen)
+html,
+body {
+  min-height: 100%;
+}
+body {
+  font-size: var(--fs-body);
+  background: var(--soft-violet);
+  color: var(--dark-grayish-blue);
+  font-weight: var(--fw-reg);
+  padding-top: 150px;
+  background-image: linear-gradient(var(--soft-violet), var(--soft-blue));
+}
+
+main {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.underline {
+  height: 0.5px;
+  background: var(--light-grayish-blue);
+  margin: 5px 0;
+}
+
+.attribution {
+  margin: 16px;
+  text-align: center;
+  font-size: 11px;
+  color: black;
+  a {
+    color: rgb(70, 0, 77);
+  }
+  a:hover {
+    color: var(--soft-red);
+  }
+}
+//=============FONTS
+
+h1 {
+  font-size: var(--fs-h1);
+  text-align: center;
+  color: var(--very-dark-desaturated-blue);
+}
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+}
+//=============mobile styles
+
+.faq-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 0px 7%;
+  border-radius: 25px;
+  .img-container {
+    background-image: url("/images/bg-pattern-mobile.svg"),
+      url("/images/illustration-woman-online-mobile.svg");
+    background-position: center bottom, top left -30px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -108px;
+    width: 237px;
+    height: 215px;
+    margin: 0 auto;
+  }
+}
+
+.container {
+  position: relative;
+  top: -45px;
+  h1 {
+    margin: 0;
+    position: relative;
+    bottom: 20px;
+  }
+}
+
+.question {
+  margin: 5px;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h3 {
+    cursor: pointer;
+  }
+
+  h3:hover {
+    color: var(--soft-red);
+  }
+
+  .arrow {
+    color: var(--soft-red);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .answer {
+    overflow: hidden;
+    height: 0;
+    line-height: 20px;
+    padding-right: 30px;
+    transition: all 0.5s ease-in;
+  }
+}
+
+.question.active h3 {
+  color: var(--very-dark-desaturated-blue);
+}
+
+.question.active .answer {
+  height: auto;
+}
+
+.question.active .arrow {
+  transform: rotateZ(180deg);
+}
+
+//=============small tablet styles
+
+@media screen and (min-width: 768px) {
+  main {
+    padding: 0 40px;
+  }
+}
+
+//==============large tablets & laptop styles
+
+@media screen and (min-width: 992px) {
+  body {
+    padding-top: 80px;
+  }
+  main {
+    padding: 0 100px;
+  }
+  .faq-container {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 793.6px;
+    .img-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      background-image: url("/images/bg-pattern-desktop.svg"),
+        url("/images/illustration-woman-online-desktop.svg");
+      background-position: bottom -85px right 80px, center right 80px;
+      background-size: 210%, 375px;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      .box-icon {
+        position: relative;
+        top: 40px;
+        left: -95px;
+        width: 191px;
+        height: 184px;
+        background-image: url("/images/illustration-box-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        transition: all 0.5s;
+      }
+    }
+    .container {
+      margin: 60px 60px 60px 0;
+      top: 0;
+      h1 {
+        margin: 30px 0;
+        top: 0;
+      }
+    }
+  }
+  h1 {
+    text-align: left;
+  }
+}
+
+//==============desktop styles
+
+@media screen and (min-width: 1400px) {
+  .faq-container {
+    max-width: 940px;
+    .img-container {
+      background-size: 200%, 450px;
+      background-position: bottom -150px right 85px, center right 85px;
+    }
+    .container {
+      margin: 60px 100px 80px 0;
+    }
+  }
+}
